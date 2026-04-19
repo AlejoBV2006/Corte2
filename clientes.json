@@ -1,0 +1,18 @@
+[
+    {
+        "id" : 0,
+        "name" : "Santiago",
+        "age" : 19,
+        "id_shoppings" : {
+            "Coca-Cola" : 5
+        }
+    },
+    {
+        "id" : 1,
+        "name" : "Alejandro",
+        "age" : 20,
+        "id_shoppings" : {
+            "Pepsi" : 6
+        }
+    }
+]

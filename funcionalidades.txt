@@ -1,0 +1,5 @@
+1. CRUD productos
+2. CRUD clientes
+3. Ventas de productos a clientes
+4. Informe de texto
+5. Informe con grafico

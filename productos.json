@@ -1,0 +1,56 @@
+[
+    {
+        "id": 0,
+        "price": 3000,
+        "name": "Coca-Cola",
+        "stock": 10
+    },
+    {
+        "id": 1,
+        "price": 2500,
+        "name": "Arroz 1kg",
+        "stock": 50
+    },
+    {
+        "id": 2,
+        "price": 1800,
+        "name": "Pasta Dental",
+        "stock": 15
+    },
+    {
+        "id": 3,
+        "price": 4500,
+        "name": "Aceite de Girasol",
+        "stock": 20
+    },
+    {
+        "id": 4,
+        "price": 1200,
+        "name": "Leche Entera",
+        "stock": 30
+    },
+    {
+        "id": 5,
+        "price": 500,
+        "name": "Pan Dulce",
+        "stock": 40
+    },
+    {
+        "id": 6,
+        "price": 3500,
+        "name": "Café Molido",
+        "stock": 12
+    },
+    {
+        "id": 7,
+        "price": 2200,
+        "name": "Detergente Líquido",
+        "stock": 8
+    },
+    {
+        "id": 8,
+        "price": 1000,
+        "name": "Papel Higiénico",
+        "stock": 25
+    }
+]
