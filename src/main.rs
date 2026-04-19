@@ -1,6 +1,7 @@
 use eframe::{egui::{self, ahash::{HashMapExt}}, glow::COMPLETION_STATUS};
 use egui_extras::{Column, TableBuilder};
 use serde::{Deserialize, Serialize};
+use serde_json::to_string;
 use winapi::shared::wtypes::DATE;
 use std::{collections::HashMap, fmt::format, fs::File, io::BufReader};
 use chrono::prelude::Local;
@@ -68,16 +69,6 @@ struct Sale {
     products: Vec<SaleItem>, 
     price: i32,
 }
-
-fn load_json<T>(path: String) -> Result<Vec<T>, Box<dyn std::error::Error>>
-where T: for<'de> Deserialize<'de>
-{
-    let file = File::open(path)?;
-    let reader = BufReader::new(file);
-    let data = serde_json::from_reader(reader)?;
-    Ok(data)
-}
- 
 struct ProgramApp {
     user: String,
     password: String,
@@ -139,9 +130,74 @@ impl ProgramApp {
 
 impl Default for ProgramApp {
     fn default() -> Self {
-        let users_default = load_json("users.json".to_string()).unwrap_or_else(|_| Vec::new());
-        let clients_default = load_json("clientes.json".to_string()).unwrap_or_else(|_| Vec::new());
-        let products_default = load_json("productos.json".to_string()).unwrap_or_else(|_| Vec::new());   
+        let users_default = vec![
+            User {
+                id: 0,
+                name : "admin".to_string(),
+                pw : "123456".to_string()
+            },
+            User{
+                id: 1,
+                name : "santiago".to_string(),
+                pw : "654321".to_string()
+            }
+        ];
+        let clients_default = vec![
+            Client {
+                id : 0,
+                name : "Santiago".to_string(),
+                age : 19,
+                id_shoppings: std::collections::HashMap::from([
+                            ("Coca-Cola".to_string(), 5)
+                        ]),
+            },
+            Client {
+                id : 1,
+                name : "Alejandro".to_string(),
+                age : 20,
+                id_shoppings: std::collections::HashMap::from([
+                            ("Coca-Cola".to_string(), 5)
+                        ]),
+            }
+        ];
+        let products_default = vec![
+            Product {
+                id: 0,
+                price: 3000,
+                name: "Coca-Cola".to_string(),
+                stock: 10
+            },
+            Product {
+                id: 1,
+                price: 2500,
+                name: "Arroz 1kg".to_string(),
+                stock: 50
+            },
+            Product {
+                id: 2,
+                price: 1800,
+                name: "Pasta Dental".to_string(),
+                stock: 15
+            },
+            Product {
+                id: 3,
+                price: 4500,
+                name: "Aceite de Girasol".to_string(),
+                stock: 20
+            },
+            Product {
+                id: 4,
+                price: 1200,
+                name: "Leche Entera".to_string(),
+                stock: 30
+            },
+            Product {
+                id: 5,
+                price: 500,
+                name: "Pan Dulce".to_string(),
+                stock: 40
+            }
+        ];   
         Self {  
             user: String::new(),
             password: String::new(),
